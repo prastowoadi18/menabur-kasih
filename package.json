@@ -6,22 +6,47 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "prettier": "npx prettier --write . && git add .",
+    "husky:setup": "npx husky-init && npm run husky:commitlint && npm run husky:prettier && npm run husky:lint",
+    "husky:commitlint": "npx husky add .husky/commit-msg 'npx --no-install commitlint --edit'",
+    "husky:prettier": "npx husky set .husky/pre-commit 'npm run prettier'",
+    "husky:lint": "npx husky add .husky/pre-commit 'npm run lint'",
+    "prepare": "husky install"
   },
   "dependencies": {
+    "@radix-ui/react-avatar": "^1.0.4",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "lucide-react": "^0.321.0",
+    "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.1.0"
+    "tailwind-merge": "^2.2.1",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@commitlint/cli": "17.6.5",
+    "@commitlint/config-conventional": "17.6.5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0",
     "eslint": "^8",
-    "eslint-config-next": "14.1.0"
+    "eslint-config-custom": "*",
+    "eslint-config-next": "14.1.0",
+    "husky": "8.0.3",
+    "lint-staged": "13.2.2",
+    "postcss": "^8",
+    "prettier": "3.0.3",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
+  },
+  "lint-staged": {
+    "src/*.{js,ts,jsx,tsx}": [
+      "prettier --config .prettierrc.js --write",
+      "git add"
+    ]
   }
 }

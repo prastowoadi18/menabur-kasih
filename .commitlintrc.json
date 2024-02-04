@@ -1,0 +1,27 @@
+{
+  "extends": ["@commitlint/config-conventional"],
+  "rules": {
+    "header-max-length": [0, "always", 150],
+    "subject-case": [0, "always", "sentence-case"],
+    "type-enum": [
+      2,
+      "always",
+      [
+        "app_ci",
+        "app_chore",
+        "app_docs",
+        "app_feat",
+        "app_fix",
+        "app_perf",
+        "app_refactor",
+        "app_revert",
+        "app_style",
+        "app_test",
+        "app_sprint",
+        "app_library",
+        "app_release",
+        "app_upgrade"
+      ]
+    ]
+  }
+}
