@@ -1,10 +1,10 @@
 module.exports = {
   root: true,
   // This tells ESLint to load the config from the package `eslint-config-custom`
-  extends: ['custom', 'prettier'],
+  extends: ["custom", "prettier"],
   settings: {
     next: {
-      rootDir: ['src/**/']
-    }
-  }
-}
+      rootDir: ["src/**/"],
+    },
+  },
+};
